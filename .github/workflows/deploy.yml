@@ -11,20 +11,14 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Deploy to Server via SSH
+   - name: Deploy to Server via SSH
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.192.168.52.102 }}      # Nanti diisi di Settings > Secrets
-        username: ${{ secrets.moon }} # Biasanya 'root' atau 'ubuntu'
-        key: ${{ secrets.minimalmancing12 }}  # Private key dari SysAdmin
-        port: 80
+        # Perhatikan: Di sini kita panggil NAMA KUNCI-nya, bukan isinya
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASSWORD }} # Ganti 'key' jadi 'password'
+        port: 22 # 22 untuk SSH
         script: |
-          # Masuk ke folder web server (path ini tanya ke SysAdmin)
           cd /var/www/html
-          
-          # Tarik perubahan terbaru dari git
-          # (Opsi 1: Jika server install git)
           git pull origin main
-          
-          # ATAU (Opsi 2: Timpa file langsung dari GitHub tanpa git di server)
-          # Ini lebih tricky, untuk Level 2 gunakan Opsi 1 saja biar mudah.
