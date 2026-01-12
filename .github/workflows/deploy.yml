@@ -14,13 +14,13 @@ jobs:
     - name: Deploy to Server via SSH
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.SERVER_IP }}      # Nanti diisi di Settings > Secrets
-        username: ${{ secrets.SERVER_USER }} # Biasanya 'root' atau 'ubuntu'
-        key: ${{ secrets.SSH_PRIVATE_KEY }}  # Private key dari SysAdmin
-        port: 22
+        host: ${{ secrets.192.168.52.102 }}      # Nanti diisi di Settings > Secrets
+        username: ${{ secrets.moon }} # Biasanya 'root' atau 'ubuntu'
+        key: ${{ secrets.minimalmancing12 }}  # Private key dari SysAdmin
+        port: 80
         script: |
           # Masuk ke folder web server (path ini tanya ke SysAdmin)
-          cd /var/www/html 
+          cd /var/www/html
           
           # Tarik perubahan terbaru dari git
           # (Opsi 1: Jika server install git)
