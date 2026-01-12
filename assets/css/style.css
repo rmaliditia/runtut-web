@@ -1,0 +1,261 @@
+/* Sesuai Spesifikasi Poin 3B: Variable Warna */
+:root {
+  --primary-color: #4379ee; /* Biru Terang */
+  --sidebar-bg: #0b1426; /* Biru Dongker Gelap */
+  --body-bg: #f5f6fa; /* Abu-abu background halaman */
+  --card-bg: #ffffff; /* Putih */
+  --text-main: #202224; /* Hitam Teks Utama */
+  --text-secondary: #6b7280; /* Abu-abu Teks Sekunder */
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-main);
+  font-family: Montserrat, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+/* --- RESET & TYPOGRAPHY --- */
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+/* --- CSS GRID LAYOUT UTAMA --- */
+.app-container {
+  display: grid;
+  /* FIXED: Kolom kiri tetap 80px, tidak akan melebar */
+  grid-template-columns: 70px 1fr;
+  min-height: 100vh;
+}
+
+/* --- SIDEBAR CONTAINER --- */
+.sidebar {
+  background-color: var(--sidebar-bg); /* #0B1426 */
+  color: #fff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pastikan semua item rata tengah secara horizontal */
+  z-index: 1000;
+}
+
+.text-decoration-none.text-muted.small.opacity-50.fw-bold:hover {
+  opacity: 75% !important;
+  transition: 0.5s all;
+  text-decoration: none;
+}
+
+/* --- STYLE TOMBOL MENU (NAV LINK) --- */
+/* Kita ubah dari lebar 100% menjadi kotak fix (48x48px) */
+.nav-link {
+  width: 40px; /* Lebar tetap agar kotak */
+  height: 40px; /* Tinggi tetap agar kotak */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.8rem; /* Jarak vertikal antar tombol */
+  border-radius: 12px; /* Sudut tumpul (Rounded) */
+  color: #94a3b8; /* Warna ikon default (abu muda) */
+  transition: all 0.3s ease;
+  border: none; /* Hapus border kiri yang lama */
+}
+
+/* Ikon Menu */
+.nav-link i {
+  font-size: 1.3rem;
+}
+
+/* Sembunyikan Teks (Mode Icon Only) */
+.link-text {
+  display: none;
+}
+
+/* --- KHUSUS MENU UTAMA (Tasks, Calendar, Progress) --- */
+/* Class .main-menu-item ditambahkan di PHP untuk item yang bisa aktif */
+
+/* 1. Efek HOVER (Belum diklik) */
+.main-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Latar putih transparan */
+  color: white;
+}
+
+/* 2. Efek ACTIVE (Halaman Sedang Dibuka) */
+.main-menu-item.active {
+  background-color: var(--primary-color); /* Biru Terang */
+  color: white;
+  box-shadow: 0 4px 12px rgba(67, 121, 238, 0.4); /* Efek glowing halus */
+}
+
+/* --- LOGO (Pengecualian) --- */
+.sidebar-logo {
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 2rem;
+  /* Reset properti nav-link agar logo tidak jadi kotak kecil */
+  width: auto;
+  height: auto;
+  background: none !important;
+}
+
+/* --- CONTENT AREA --- */
+.main-content {
+  background-color: var(--body-bg);
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+/* --- CALENDAR GRID SYSTEM --- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 Kolom (Hari) */
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1/1; /* Agar bentuknya kotak sempurna */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Lingkaran */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: #f1f2f6;
+}
+
+/* Penanda Hari Ini (Lingkaran Ungu/Biru) */
+.calendar-day.today.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 3px 10px rgba(67, 121, 238, 0.3);
+}
+
+/* --- FULLCALENDAR CUSTOMIZATION --- */
+
+/* Judul Bulan (Januari 2026) */
+.fc-toolbar-title {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  color: var(--text-main);
+}
+
+/* Tombol Navigasi (< > Today) */
+.fc-button-primary {
+  background-color: white !important;
+  border-color: #e0e0e0 !important;
+  color: var(--text-main) !important;
+  font-weight: 600 !important;
+  text-transform: capitalize;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+/* Saat tombol di-hover */
+.fc-button-primary:hover,
+.fc-button-primary:active {
+  background-color: #f8f9fa !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Tombol "Today" aktif */
+.fc-button-active {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Link Tanggal (Angka) */
+.fc-daygrid-day-number {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+/* Hari Ini (Background Kotak Hari Ini) */
+.fc-day-today {
+  background-color: rgba(67, 121, 238, 0.05) !important; /* Biru sangat muda */
+}
+
+/* Event (Kotak Tugas di dalam kalender) */
+.fc-event {
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 2px 5px !important;
+  font-size: 0.85rem !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+/* --- FLOATING ACTION BUTTON (TOMBOL TAMBAH) --- */
+.btn-fab {
+  position: fixed; /* Posisi tetap terhadap layar */
+  bottom: 40px; /* Jarak dari bawah */
+  right: 40px; /* Jarak dari kanan */
+  width: 60px; /* Lebar */
+  height: 60px; /* Tinggi (Sama agar bulat) */
+  border-radius: 50%; /* Membuat lingkaran sempurna */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Ukuran icon plus */
+  box-shadow: 0 4px 15px rgba(67, 121, 238, 0.4); /* Efek bayangan */
+  transition: all 0.3s ease;
+  z-index: 1050; /* Pastikan di atas elemen lain */
+}
+
+.btn-fab:hover {
+  background-color: #3260d6; /* Warna sedikit gelap saat hover */
+  transform: translateY(-3px); /* Efek naik sedikit saat disentuh */
+  box-shadow: 0 8px 25px rgba(67, 121, 238, 0.5);
+  color: white;
+}
+
+/* --- TANGGAL YANG DIKLIK (SELECTED) --- */
+.fc-day-selected {
+  background-color: rgba(
+    67,
+    121,
+    238,
+    0.1
+  ) !important; /* Biru Muda Background */
+}
+
+.fc-day-selected .fc-daygrid-day-number {
+  background-color: var(--primary-color);
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Animasi Halus saat list berubah */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-up {
+  animation: fadeInUp 0.3s ease-out;
+}
