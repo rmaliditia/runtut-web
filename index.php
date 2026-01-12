@@ -1,5 +1,5 @@
 <?php
-session_start()
+session_start();
 
 // Jika user sudah login, langsung lempar ke Dashboard (Tasks)
 if (isset($_SESSION['is_login']) && $_SESSION['is_login'] === true) {

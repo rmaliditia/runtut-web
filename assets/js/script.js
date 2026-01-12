@@ -1,7 +1,7 @@
 // assets/js/script.js
 
 document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
+  var calendarEl = document.getElementById("calendar")
 
   if (calendarEl) {
     // Variabel untuk menyimpan elemen tanggal terakhir yang diklik
