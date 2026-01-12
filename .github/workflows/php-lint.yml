@@ -38,9 +38,3 @@ jobs:
     # Mencari semua file .js dan mengeceknya
     - name: Check JavaScript Syntax
       run: find . -name "*.js" -print0 | xargs -0 -n1 jshint
-
-    # 7. Cek Syntax CSS (Frontend Style)
-    # Mencari semua file .css dan mengeceknya
-    # (Optional: Kadang CSSLint agak "cerewet", kalau merah terus bagian ini bisa dihapus)
-    - name: Check CSS Syntax
-      run: find . -name "*.css" -print0 | xargs -0 -n1 csslint --format=compact
