@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           script: |
-            cd /var/www/html
+            cd /var/www/html/runtut-web
             git pull origin main
