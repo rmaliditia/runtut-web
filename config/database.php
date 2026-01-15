@@ -29,7 +29,7 @@ function loadEnv($path) {
 }
 
 // Panggil fungsinya (Pastikan file .env ada di folder yg sama)
-loadEnv(__DIR__ . '/.env');
+loadEnv(dirname(__DIR__) . '/.env');
 
 $host = getenv('DB_HOST');
 $username = getenv('DB_USERNAME');
