@@ -29,5 +29,5 @@ function loadEnv($path) {
 // Panggil fungsinya (Pastikan file .env ada di folder yg sama)
 loadEnv(__DIR__ . '/.env');
 // Coba ambil satu data
-$db_host = $env['DB_HOST'];
+$db_host = getenv('DB_HOST');
 var_dump($db_host);
