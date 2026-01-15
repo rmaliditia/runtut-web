@@ -1,10 +1,11 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "runtut_db";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$host = getenv('DB_HOST');
+$username = getenv('DB_USERNAME');
+$password = getenv('DB_PASSWORD');
+$db = getenv('DB_DATABASE');
+
+$conn = mysqli_connect($host, $username, $password, $db);
 
 if (!$conn) {
     die("Koneksi Gagal: " . mysqli_connect_error());
