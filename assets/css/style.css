@@ -1,11 +1,15 @@
 /* Sesuai Spesifikasi Poin 3B: Variable Warna */
 :root {
-  --primary-color: #4379ee; /* Biru Terang */
-  --sidebar-bg: #0b1426; /* Biru Dongker Gelap */
-  --body-bg: #d11790; /* Abu-abu background halaman */
+  --primary-color: #ffffff31; /* Biru Terang */
+  --sidebar-bg: #e8e8e8; /* Biru Dongker Gelap */
+  --body-bg: #e8e8e8; /* Abu-abu background halaman */
   --card-bg: #ffffff; /* Putih */
-  --text-main: #202224; /* Hitam Teks Utama */
-  --text-secondary: #6b7280; /* Abu-abu Teks Sekunder */
+  --text-main: #2fabe9; /* Hitam Teks Utama */
+  --text-secondary: #2fabe9; /* Abu-abu Teks Sekunder */
+}
+
+.text-primary {
+  color: var(--text-main) !important;
 }
 
 body {
@@ -33,7 +37,7 @@ a {
 
 /* --- SIDEBAR CONTAINER --- */
 .sidebar {
-  background-color: var(--sidebar-bg); /* #0B1426 */
+  background-color: var(--sidebar-bg);
   color: #fff;
   height: 100vh;
   position: sticky;
@@ -81,7 +85,7 @@ a {
 
 /* 1. Efek HOVER (Belum diklik) */
 .main-menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Latar putih transparan */
+  background-color: #ffffff1a; /* Latar putih transparan */
   color: white;
 }
 
@@ -95,7 +99,7 @@ a {
 /* --- LOGO (Pengecualian) --- */
 .sidebar-logo {
   font-size: 1.6rem;
-  color: white;
+  color: var(--text-main);
   margin-bottom: 2rem;
   /* Reset properti nav-link agar logo tidak jadi kotak kecil */
   width: auto;

@@ -96,7 +96,7 @@ include 'includes/sidebar.php';
 
         <form action="" method="GET" class="row g-2 mb-4">
             <div class="col-md-3">
-                <select name="cat" class="form-select border-0 shadow-sm rounded-pill text-secondary" onchange="this.form.submit()">
+                <select name="cat" class="form-select border border-primary text-secondary" onchange="this.form.submit()">
                     <option value="All">All Categories</option>
                     <option value="Personal" <?= $cat == 'Personal' ? 'selected' : '' ?>>Personal</option>
                     <option value="Work" <?= $cat == 'Work' ? 'selected' : '' ?>>Work</option>
@@ -105,13 +105,13 @@ include 'includes/sidebar.php';
                 </select>
             </div>
             <div class="col-md-5">
-                <div class="input-group shadow-sm border-0 rounded-pill overflow-hidden bg-white">
+                <div class="input-group  border border-primary rounded-1 overflow-hidden bg-white">
                     <input type="text" name="q" class="form-control border-0 shadow-none" placeholder="Search tasks..." value="<?= htmlspecialchars($search) ?>">
                     <span class="input-group-text bg-white border-0 ps-3"><i class="fas fa-search text-muted"></i></span>
                 </div>
             </div>
             <div class="col-md-4">
-                <select name="sort" class="form-select border-0 shadow-sm rounded-pill text-secondary" onchange="this.form.submit()">
+                <select name="sort" class="form-select border border-primary text-secondary" onchange="this.form.submit()">
                     <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>📅 Date (Ascending)</option>
                     <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>📅 Date (Descending)</option>
                     <option value="alpha_asc" <?= $sort == 'alpha_asc' ? 'selected' : '' ?>>🔤 A - Z</option>
