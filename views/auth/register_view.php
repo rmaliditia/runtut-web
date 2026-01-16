@@ -26,7 +26,6 @@
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
             border: none;
             padding: 0.8rem;
             border-radius: 8px;
