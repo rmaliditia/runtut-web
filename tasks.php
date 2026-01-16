@@ -19,8 +19,8 @@ $sort   = isset($_GET['sort']) ? $_GET['sort'] : 'date_asc';
 $is_filter_active = (!empty($search) || $cat != 'All');
 
 $query = "SELECT * FROM tasks 
-          WHERE user_id = '$user_id' 
-          AND (status = 'pending' OR (status = 'completed' AND DATE(completed_at) = CURDATE()))";
+        WHERE user_id = '$user_id' 
+        AND (status = 'pending' OR (status = 'completed' AND DATE(completed_at) = CURDATE()))";
 
 if (!empty($search)) {
     $query .= " AND title LIKE '%$search%'";

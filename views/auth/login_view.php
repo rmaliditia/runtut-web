@@ -46,7 +46,7 @@
     <div class="auth-card">
         <div class="text-center mb-4">
 <img src="../../runtut-web/assets/img/logo/full.png" alt="Runtut Logo" class="img-fluid mb-2" style="max-height: 80px;">
-            <p class="text-muted small">Silakan masuk untuk mendaftarrrrrrrr.</p>
+            <p class="text-muted small">Silakan masuk untuk daftarr.</p>
         </div>
 
         <?php if (isset($_SESSION['error'])): ?>
