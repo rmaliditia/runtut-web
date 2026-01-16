@@ -72,7 +72,7 @@ include 'includes/sidebar.php';
                                 <div class="card-body p-3">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <span class="badge bg-primary text-<?= $badgeColor ?> mb-2">
+                                            <span class="badge bg-primary mb-2">
                                                 <?= $time ?>
                                             </span>
                                             <h6 class="fw-bold mb-1 text-truncate <?= $textClass ?>" style="max-width: 200px;">
