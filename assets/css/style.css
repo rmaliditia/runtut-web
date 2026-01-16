@@ -2,7 +2,7 @@
 :root {
   --primary-color: #ffffff31; /* Biru Terang */
   --sidebar-bg: #e8e8e8; /* Biru Dongker Gelap */
-  --body-bg: #e8e; /* Abu-abu background halaman */
+  --body-bg: #000; /* Abu-abu background halaman */
   --card-bg: #ffffff; /* Putih */
   --text-main: #2fabe9; /* Hitam Teks Utama */
   --text-secondary: #2fabe9; /* Abu-abu Teks Sekunder */
