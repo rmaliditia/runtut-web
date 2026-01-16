@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 // --- FUNGSI PEMBACA .ENV MANUAL ---
 function loadEnv($path) {
     if (!file_exists($path)) {
@@ -28,8 +25,24 @@ function loadEnv($path) {
     }
 }
 
-// Panggil fungsinya (Pastikan file .env ada di folder yg sama)
+// 1. Panggil dulu Environment-nya
 loadEnv(dirname(__DIR__) . '/.env');
+
+// 2. LOGIKA KEAMANAN BARU
+// Cek apakah mode DEBUG aktif?
+$debug_mode = getenv('APP_DEBUG');
+
+if ($debug_mode === 'true') {
+    // Kalo true: Tampilkan semua error (Mode Ngoding)
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+} else {
+    // Kalo false: Sembunyikan error (Mode Production/Aman)
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(0);
+}
 
 $host = getenv('DB_HOST');
 $username = getenv('DB_USERNAME');
