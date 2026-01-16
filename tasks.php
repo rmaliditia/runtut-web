@@ -175,7 +175,7 @@ include 'includes/sidebar.php';
         </div>
 
         <div class="text-center mt-5 mb-5">
-            <a href="history.php" class="text-decoration-none text-muted small opacity-50 fw-bold">
+            <a href="history.php" class="text-decoration-none text-primary small opacity-75 fw-bold">
                 Check all history <i class="fas fa-arrow-right ms-1"></i>
             </a>
         </div>

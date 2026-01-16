@@ -72,7 +72,7 @@ include 'includes/sidebar.php';
                                 <div class="card-body p-3">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <span class="badge bg-light text-<?= $badgeColor ?> mb-2">
+                                            <span class="badge bg-primary text-<?= $badgeColor ?> mb-2">
                                                 <?= $time ?>
                                             </span>
                                             <h6 class="fw-bold mb-1 text-truncate <?= $textClass ?>" style="max-width: 200px;">
@@ -94,7 +94,7 @@ include 'includes/sidebar.php';
                                                         <i class="fas <?= $btnIcon ?> me-2 <?= $btnColor ?>"></i><?= $btnLabel ?>
                                                     </a>
                                                 </li>
-                                                 <li><hr class="dropdown-divider"></li>
+                                                <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item small text-danger btn-delete" href="actions/task_handler.php?action=delete&id=<?= $row['id'] ?>">
                                 <i class="fas fa-trash me-2"></i>Delete
@@ -108,7 +108,7 @@ include 'includes/sidebar.php';
                         <?php endwhile; ?>
 
                     <?php else: ?>
-                        <div class="text-center py-5 text-muted">
+                        <div class="text-center py-5 text-primary opacity-70">
                             <i class="fas fa-mug-hot fs-1 mb-3 opacity-25"></i>
                             <p>No tasks for today.</p>
                         </div>
@@ -118,9 +118,9 @@ include 'includes/sidebar.php';
             </div>
 
             <div class="col-lg-8">
-                <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card border-0 shadow-sm rounded-2 h-100">
                     <div class="card-body p-4">
-                        <div id="calendar"></div>
+                        <div id="calendar" class="text-primary"></div>
                     </div>
                 </div>
             </div>
