@@ -44,7 +44,7 @@ include 'includes/sidebar.php';
             </div>
 
             <div class="col-md-6">
-                <div class="card border-0 shadow-sm rounded-4 h-100" style="background-color: #FF9F43; color: white;">
+                <div class="card border-0 shadow-sm rounded-4 h-100" style="background-color: #2fabe9; color: white;">
                     <div class="card-body p-4 d-flex justify-content-between align-items-center">
                         <div>
                             <p class="mb-1 opacity-75">Pending Tasks</p>

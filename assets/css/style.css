@@ -209,7 +209,7 @@ a {
   width: 60px; /* Lebar */
   height: 60px; /* Tinggi (Sama agar bulat) */
   border-radius: 50%; /* Membuat lingkaran sempurna */
-  background-color: var(--primary-color);
+  background-color: var(--card-bg);
   color: white;
   border: none;
   display: flex;
@@ -219,6 +219,7 @@ a {
   box-shadow: 0 4px 15px rgba(67, 121, 238, 0.4); /* Efek bayangan */
   transition: all 0.3s ease;
   z-index: 1050; /* Pastikan di atas elemen lain */
+  color: #3260d6;
 }
 
 .btn-fab:hover {
