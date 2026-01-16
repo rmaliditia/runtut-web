@@ -1,0 +1,85 @@
+# 🚀 Moon20: Cloud-Ready Application Infrastructure
+
+![CI/CD Status](https://img.shields.io/github/actions/workflow/status/username_repo/ci.yml?branch=main&label=Build&style=for-the-badge)
+![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
+> **Tugas Besar Mata Kuliah Infrastruktur Pendukung Aplikasi (TIF - UNPAS)**
+> Project Level: **Level 3 (Cloud & Hybrid Project)**
+
+---
+
+## 👥 Tim Pengembang (Moon20)
+
+Proyek ini dikerjakan oleh tim dengan pembagian peran spesifik sesuai standar industri:
+
+| Nama Anggota | NPM | Peran (*Role*) | Tanggung Jawab Utama |
+| :--- | :--- | :--- | :--- |
+| **Tanwirul Fuadhilan** | *[NPM Anda]* | **SysAdmin** | Cloud Provisioning (Azure), Database Management, Web Server Configuration |
+| **Reiza Mohamad Aliditia** | *[NPM Anda]* | **DevOps Engineer** | CI/CD Pipeline (GitHub Actions), Security Hardening, Automation Scripting |
+| **Dwi Dzaky** | *[NPM Anda]* | **Documentation** | System Architecture Design, Technical Report, Quality Assurance (QA) |
+
+---
+
+## 📖 Tentang Proyek
+
+**Moon20 Infrastructure** adalah implementasi infrastruktur aplikasi berbasis Cloud (IaaS) yang dirancang untuk menjalankan aplikasi web Monolitik dengan standar keamanan dan ketersediaan tinggi. Proyek ini memigrasikan aplikasi dari lingkungan lokal (*localhost*) menuju lingkungan produksi (*Production Server*) di Microsoft Azure.
+
+### 🎯 Fitur Utama Infrastruktur:
+* **High Performance Cloud VM:** Menggunakan Azure B-Series (ARM64) dengan Premium SSD.
+* **Automated Deployment (CI/CD):** Pipa otomatisasi menggunakan GitHub Actions (Parallel Execution).
+* **Enhanced Security:** SSL/TLS (HTTPS), Firewall (NSG), dan SSH Key Authentication (No Password).
+* **Disaster Recovery:** Skrip backup database otomatis terjadwal (Cronjob).
+* **24/7 Monitoring:** Pemantauan uptime server real-time menggunakan UptimeRobot.
+
+---
+
+## 🛠️ Spesifikasi Teknis (Tech Stack)
+
+| Komponen | Spesifikasi | Keterangan |
+| :--- | :--- | :--- |
+| **Cloud Provider** | Microsoft Azure | Region: Korea Central (Asia Pacific) |
+| **Virtual Machine** | Standard B2ats v2 | 2 vCPUs (ARM64), 1 GiB RAM |
+| **OS** | Ubuntu Server 22.04 LTS | Jammy Jellyfish |
+| **Web Server** | Apache2 | HTTP/HTTPS Server |
+| **Database** | MySQL 8.0 | Relational Database Management System |
+| **Language** | PHP 8.3 | Server-side scripting |
+| **SSL Provider** | Let's Encrypt | Automated via Certbot |
+
+---
+
+## ⚙️ Arsitektur & Alur Kerja
+
+### 1. Topologi Server
+Aplikasi berjalan di atas topologi *Single-Tier* yang diamankan oleh Azure Network Security Group.
+*(Silakan lihat dokumen `Diagram_Arsitektur.png` di folder `/docs`)*.
+
+### 2. CI/CD Pipeline Flow
+Kami menerapkan strategi **Parallel Execution** untuk mempercepat waktu rilis:
+1.  **Push to Main:** Developer melakukan push kode ke GitHub.
+2.  **CI Job:** GitHub Actions menjalankan `php -l` (Linting) untuk cek error sintaks.
+3.  **CD Job:** GitHub Actions melakukan SSH ke server dan menjalankan `git pull`.
+4.  **Live:** Perubahan langsung terlihat di website produksi dalam hitungan detik.
+
+---
+
+## 🔒 Kebijakan Keamanan (Security Policy)
+
+Kami menerapkan standar keamanan Level 3:
+* ✅ **HTTPS Enforced:** Semua trafik HTTP (Port 80) di-redirect ke HTTPS (Port 443).
+* ✅ **SSH Hardening:** Login password dimatikan total. Akses hanya via SSH Key Pair.
+* ✅ **Firewall:** Port yang dibuka hanya 22, 80, dan 443.
+* ✅ **Environment Separation:** Debug mode dimatikan (`APP_DEBUG=false`) di server produksi.
+
+---
+
+## 🔗 Tautan Penting
+* **Live Website:** [https://moon20.koreacentral.cloudapp.azure.com](https://moon20.koreacentral.cloudapp.azure.com) *(Ganti dengan link kamu)*
+* **Video Demo:** [Link YouTube]
+* **Monitoring Dashboard:** [Link UptimeRobot Status]
+
+---
+
+Copyright © 2026 **Moon20 Team**. All Rights Reserved.
