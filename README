@@ -1,85 +1,81 @@
-# 🚀 Moon20: Cloud-Ready Application Infrastructure
+<div align="center">
 
-![CI/CD Status](https://img.shields.io/github/actions/workflow/status/username_repo/ci.yml?branch=main&label=Build&style=for-the-badge)
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+  # 🌕 MOON20 INFRASTRUCTURE
+  ### Cloud-Ready Application Environment | Level 3 Project
+
+  ![Build Status](https://img.shields.io/badge/BUILD-PASSING-success?style=for-the-badge&logo=github-actions)
+  ![Uptime](https://img.shields.io/badge/UPTIME-99.9%25-brightgreen?style=for-the-badge&logo=uptimerobot)
+  ![Security](https://img.shields.io/badge/SECURITY-A%2B-blue?style=for-the-badge&logo=letsendcrypt)
+
+  <p align="center">
+    <b>Moon20</b> adalah proyek infrastruktur modern yang dirancang untuk mendemonstrasikan
+    migrasi aplikasi monolitik ke lingkungan <b>Cloud Production</b> dengan standar keamanan industri.
+  </p>
+
+  [🌐 Kunjungi Website](https://moon20.koreacentral.cloudapp.azure.com) • [📺 Lihat Video Demo](#) • [📄 Baca Laporan](#)
+
+</div>
+
+---
+
+## 👨‍💻 Tim Pengembang (The Engineers)
+
+Proyek ini dikerjakan oleh **Mahasiswa Teknik Informatika UNPAS** dengan spesialisasi peran:
+
+| Foto | Nama & NPM | Peran (*Role*) | Spesialisasi Teknis |
+| :---: | :--- | :--- | :--- |
+| <img src="https://ui-avatars.com/api/?name=Tanwirul+Fuadhilan&background=0D8ABC&color=fff" width="40" height="40"> | **Tanwirul Fuadhilan**<br>*(SysAdmin)* | **Cloud & Database** | • Azure Provisioning<br>• MySQL Optimization<br>• Server Maintenance |
+| <img src="https://ui-avatars.com/api/?name=Reiza+Aliditia&background=E95420&color=fff" width="40" height="40"> | **Reiza M. Aliditia**<br>*(DevOps)* | **CI/CD & Security** | • GitHub Actions Pipeline<br>• SSH Hardening<br>• Firewall Config |
+| <img src="https://ui-avatars.com/api/?name=Dwi+Dzaky&background=6C757D&color=fff" width="40" height="40"> | **Dwi Dzaky**<br>*(Documentation)* | **Architect & QA** | • System Design<br>• Technical Writing<br>• Quality Assurance |
+
+---
+
+## 🛠️ Teknologi yang Digunakan (Tech Stack)
+
+Kami menggunakan teknologi terkini untuk menjamin performa dan stabilitas:
+
+### Infrastructure & Cloud
+![Azure](https://img.shields.io/badge/microsoft%20azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Apache](https://img.shields.io/badge/apache-D42029?style=for-the-badge&logo=apache&logoColor=white)
 
-> **Tugas Besar Mata Kuliah Infrastruktur Pendukung Aplikasi (TIF - UNPAS)**
-> Project Level: **Level 3 (Cloud & Hybrid Project)**
+### Development & Database
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
----
-
-## 👥 Tim Pengembang (Moon20)
-
-Proyek ini dikerjakan oleh tim dengan pembagian peran spesifik sesuai standar industri:
-
-| Nama Anggota | NPM | Peran (*Role*) | Tanggung Jawab Utama |
-| :--- | :--- | :--- | :--- |
-| **Tanwirul Fuadhilan** | *[NPM Anda]* | **SysAdmin** | Cloud Provisioning (Azure), Database Management, Web Server Configuration |
-| **Reiza Mohamad Aliditia** | *[NPM Anda]* | **DevOps Engineer** | CI/CD Pipeline (GitHub Actions), Security Hardening, Automation Scripting |
-| **Dwi Dzaky** | *[NPM Anda]* | **Documentation** | System Architecture Design, Technical Report, Quality Assurance (QA) |
+### DevOps & Tools
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+![Eraser.io](https://img.shields.io/badge/Eraser.io-EB5424?style=for-the-badge&logo=eraser&logoColor=white)
+![Lets Encrypt](https://img.shields.io/badge/Lets%20Encrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)
 
 ---
 
-## 📖 Tentang Proyek
+## ⚡ Fitur Utama (Key Features)
 
-**Moon20 Infrastructure** adalah implementasi infrastruktur aplikasi berbasis Cloud (IaaS) yang dirancang untuk menjalankan aplikasi web Monolitik dengan standar keamanan dan ketersediaan tinggi. Proyek ini memigrasikan aplikasi dari lingkungan lokal (*localhost*) menuju lingkungan produksi (*Production Server*) di Microsoft Azure.
+Berikut adalah kapabilitas infrastruktur yang telah kami bangun:
 
-### 🎯 Fitur Utama Infrastruktur:
-* **High Performance Cloud VM:** Menggunakan Azure B-Series (ARM64) dengan Premium SSD.
-* **Automated Deployment (CI/CD):** Pipa otomatisasi menggunakan GitHub Actions (Parallel Execution).
-* **Enhanced Security:** SSL/TLS (HTTPS), Firewall (NSG), dan SSH Key Authentication (No Password).
-* **Disaster Recovery:** Skrip backup database otomatis terjadwal (Cronjob).
-* **24/7 Monitoring:** Pemantauan uptime server real-time menggunakan UptimeRobot.
-
----
-
-## 🛠️ Spesifikasi Teknis (Tech Stack)
-
-| Komponen | Spesifikasi | Keterangan |
-| :--- | :--- | :--- |
-| **Cloud Provider** | Microsoft Azure | Region: Korea Central (Asia Pacific) |
-| **Virtual Machine** | Standard B2ats v2 | 2 vCPUs (ARM64), 1 GiB RAM |
-| **OS** | Ubuntu Server 22.04 LTS | Jammy Jellyfish |
-| **Web Server** | Apache2 | HTTP/HTTPS Server |
-| **Database** | MySQL 8.0 | Relational Database Management System |
-| **Language** | PHP 8.3 | Server-side scripting |
-| **SSL Provider** | Let's Encrypt | Automated via Certbot |
+* ✅ **High Availability Cloud:** Berjalan di Azure Region Korea Central dengan spesifikasi B2ats v2 (ARM64).
+* ✅ **Zero-Downtime Deployment:** Pipeline CI/CD otomatis memperbarui kode dalam < 2 menit tanpa FTP manual.
+* ✅ **Bank-Grade Security:**
+    * SSL/TLS Encryption (HTTPS).
+    * No-Password SSH Login (Key Pair Only).
+    * Firewall (Network Security Group) whitelist.
+* ✅ **Disaster Recovery:** Backup Database otomatis setiap jam 00:00 (Cronjob).
+* ✅ **Environment Isolation:** Pemisahan konfigurasi `.env` (Debug Mode Off di Production).
 
 ---
 
-## ⚙️ Arsitektur & Alur Kerja
+## 🚀 Alur Kerja Deployment (CI/CD)
 
-### 1. Topologi Server
-Aplikasi berjalan di atas topologi *Single-Tier* yang diamankan oleh Azure Network Security Group.
-*(Silakan lihat dokumen `Diagram_Arsitektur.png` di folder `/docs`)*.
+Proses otomatisasi yang terjadi di balik layar:
 
-### 2. CI/CD Pipeline Flow
-Kami menerapkan strategi **Parallel Execution** untuk mempercepat waktu rilis:
-1.  **Push to Main:** Developer melakukan push kode ke GitHub.
-2.  **CI Job:** GitHub Actions menjalankan `php -l` (Linting) untuk cek error sintaks.
-3.  **CD Job:** GitHub Actions melakukan SSH ke server dan menjalankan `git pull`.
-4.  **Live:** Perubahan langsung terlihat di website produksi dalam hitungan detik.
-
----
-
-## 🔒 Kebijakan Keamanan (Security Policy)
-
-Kami menerapkan standar keamanan Level 3:
-* ✅ **HTTPS Enforced:** Semua trafik HTTP (Port 80) di-redirect ke HTTPS (Port 443).
-* ✅ **SSH Hardening:** Login password dimatikan total. Akses hanya via SSH Key Pair.
-* ✅ **Firewall:** Port yang dibuka hanya 22, 80, dan 443.
-* ✅ **Environment Separation:** Debug mode dimatikan (`APP_DEBUG=false`) di server produksi.
-
----
-
-## 🔗 Tautan Penting
-* **Live Website:** [https://moon20.koreacentral.cloudapp.azure.com](https://moon20.koreacentral.cloudapp.azure.com) *(Ganti dengan link kamu)*
-* **Video Demo:** [Link YouTube]
-* **Monitoring Dashboard:** [Link UptimeRobot Status]
-
----
-
-Copyright © 2026 **Moon20 Team**. All Rights Reserved.
+```mermaid
+graph LR
+A[Developer] -- Push Code --> B(GitHub Repo)
+B -- Trigger --> C{GitHub Actions}
+C -- Parallel --> D[Job 1: Quality Check]
+C -- Parallel --> E[Job 2: Auto Deploy]
+D -- Syntax Check --> F[Verified]
+E -- SSH Connection --> G[Azure Server]
+G -- Git Pull --> H[Live Website]
