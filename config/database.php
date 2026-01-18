@@ -44,7 +44,7 @@ if ($debug_mode === 'true') {
     error_reporting(0);
 }
 
-$host = getenv('DB_HOST')
+$host = getenv('DB_HOST');
 $username = getenv('DB_USERNAME');
 $password = getenv('DB_PASSWORD');
 $db = getenv('DB_DATABASE');
