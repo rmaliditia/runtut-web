@@ -1,6 +1,6 @@
 <?php
 
-// --- FUNGSI PEMBACA .ENV MANUAL ---
+//  FUNGSI PEMBACA .ENV MANUAL 
 function loadEnv($path) {
     if (!file_exists($path)) {
         return false;

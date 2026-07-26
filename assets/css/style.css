@@ -1,257 +1,554 @@
-/* Sesuai Spesifikasi Poin 3B: Variable Warna */
-:root {
-  --primary-color: #ffffff31; /* Biru Terang */
-  --sidebar-bg: #e8e8e8; /* Biru Dongker Gelap */
-  --body-bg: #e8e8e8; /* Abu-abu background halaman */
-  --card-bg: #ffffff; /* Putih */
-  --text-main: #2fabe9; /* Hitam Teks Utama */
-  --text-secondary: #2fabe9; /* Abu-abu Teks Sekunder */
-}
+/* ========================================================
+   NEUBRUTALISM DESIGN SYSTEM - TAHAP 1 (STYLE.CSS)
+   ======================================================== */
 
-.text-primary {
-  color: var(--text-main) !important;
+:root {
+  /* Palet Warna Neo-brutalism */
+  --neo-yellow: #f8e136;
+  --neo-pink: #ff90e8;
+  --neo-blue: #90a8ed;
+  --neo-light-green: #b1e87a;
+  --neo-orange: #ff7a00;
+  --neo-purple: #c4a1ff;
+  --neo-gray: #e2e8f0;
+  --neo-bg: #f5f6fa;
+
+  --black: #111111;
+  --white: #ffffff;
+
+  /* Ukuran Border & Shadow */
+  --border-width: 3px;
+  --shadow-offset: 5px;
+
+  /* OVERRIDE BOOTSTRAP SEMANTIC COLORS (Poin 2) */
+  --bs-primary: var(--neo-blue);
+  --bs-primary-rgb: 144, 168, 237;
+  --bs-success: var(--neo-light-green);
+  --bs-success-rgb: 177, 232, 122;
+  --bs-danger: var(--neo-pink);
+  --bs-danger-rgb: 255, 144, 232;
+  --bs-warning: var(--neo-yellow);
+  --bs-warning-rgb: 248, 225, 54;
+  --bs-info: var(--neo-purple);
+  --bs-info-rgb: 196, 161, 255;
+  
+  --bs-secondary: var(--neo-gray);
+  --bs-secondary-rgb: 226, 232, 240;
+
+  --primary-color: var(--neo-blue);
+  --sidebar-bg: var(--white);
+  --body-bg: var(--neo-bg);
+  --text-main: var(--black);
 }
 
 body {
   background-color: var(--body-bg);
   color: var(--text-main);
-  font-family: Montserrat, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
 }
 
-/* --- RESET & TYPOGRAPHY --- */
-* {
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-
-/* --- CSS GRID LAYOUT UTAMA --- */
-.app-container {
-  display: grid;
-  /* FIXED: Kolom kiri tetap 80px, tidak akan melebar */
-  grid-template-columns: 70px 1fr;
-  min-height: 100vh;
-}
-
-/* --- SIDEBAR CONTAINER --- */
-.sidebar {
-  background-color: var(--sidebar-bg);
-  color: #fff;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  padding: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Pastikan semua item rata tengah secara horizontal */
-  z-index: 1000;
-}
-
-.text-decoration-none.text-muted.small.opacity-50.fw-bold:hover {
-  opacity: 75% !important;
-  transition: 0.5s all;
-  text-decoration: none;
-}
-
-/* --- STYLE TOMBOL MENU (NAV LINK) --- */
-/* Kita ubah dari lebar 100% menjadi kotak fix (48x48px) */
-.nav-link {
-  width: 40px; /* Lebar tetap agar kotak */
-  height: 40px; /* Tinggi tetap agar kotak */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.8rem; /* Jarak vertikal antar tombol */
-  border-radius: 12px; /* Sudut tumpul (Rounded) */
-  color: #94a3b8; /* Warna ikon default (abu muda) */
-  transition: all 0.3s ease;
-  border: none; /* Hapus border kiri yang lama */
-}
-
-/* Ikon Menu */
-.nav-link i {
-  font-size: 1.3rem;
-}
-
-/* Sembunyikan Teks (Mode Icon Only) */
-.link-text {
-  display: none;
-}
-
-/* --- KHUSUS MENU UTAMA (Tasks, Calendar, Progress) --- */
-/* Class .main-menu-item ditambahkan di PHP untuk item yang bisa aktif */
-
-/* 1. Efek HOVER (Belum diklik) */
-.main-menu-item:hover {
-  background-color: #ffffff1a; /* Latar putih transparan */
-  color: white;
-}
-
-/* 2. Efek ACTIVE (Halaman Sedang Dibuka) */
-.main-menu-item.active {
-  background-color: var(--primary-color); /* Biru Terang */
-  color: white;
-  box-shadow: 0 4px 12px rgba(67, 121, 238, 0.4); /* Efek glowing halus */
-}
-
-/* --- LOGO (Pengecualian) --- */
-.sidebar-logo {
-  font-size: 1.6rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 2rem;
-  /* Reset properti nav-link agar logo tidak jadi kotak kecil */
-  width: auto;
-  height: auto;
-  background: none !important;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
 }
 
-/* --- CONTENT AREA --- */
-.main-content {
-  background-color: var(--body-bg);
-  padding: 2rem;
-  overflow-x: hidden;
+/*  NEO-BRUTALISM UTILITIES  */
+.neo-border {
+  border: var(--border-width) solid var(--black) !important;
 }
-
-/* --- CALENDAR GRID SYSTEM --- */
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 Kolom (Hari) */
-  gap: 10px;
-  margin-top: 1rem;
+.neo-shadow {
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--black) !important;
 }
-
-.calendar-day {
-  aspect-ratio: 1/1; /* Agar bentuknya kotak sempurna */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%; /* Lingkaran */
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.calendar-day:hover {
-  background-color: #f1f2f6;
-}
-
-/* Penanda Hari Ini (Lingkaran Ungu/Biru) */
-.calendar-day.today.active {
-  background-color: var(--primary-color);
-  color: white;
-  box-shadow: 0 3px 10px rgba(67, 121, 238, 0.3);
-}
-
-/* --- FULLCALENDAR CUSTOMIZATION --- */
-
-/* Judul Bulan (Januari 2026) */
-.fc-toolbar-title {
-  font-size: 1.5rem !important;
-  font-weight: 800 !important;
-  color: var(--text-main);
-}
-
-/* Tombol Navigasi (< > Today) */
-.fc-button-primary {
-  background-color: white !important;
-  border-color: #e0e0e0 !important;
-  color: var(--text-main) !important;
-  font-weight: 600 !important;
-  text-transform: capitalize;
-  box-shadow: none !important;
+.neo-rounded {
   border-radius: 8px !important;
 }
 
-/* Saat tombol di-hover */
-.fc-button-primary:hover,
-.fc-button-primary:active {
-  background-color: #f8f9fa !important;
-  color: var(--primary-color) !important;
-  border-color: var(--primary-color) !important;
+.neo-hover:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px var(--black) !important;
+  transition: all 0.1s ease-in-out;
+}
+.neo-hover:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px var(--black) !important;
 }
 
-/* Tombol "Today" aktif */
-.fc-button-active {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-  border-color: var(--primary-color) !important;
+/*  OVERRIDE BOOTSTRAP COMPONENTS  */
+.card {
+  border: var(--border-width) solid var(--black) !important;
+  border-radius: 8px !important;
+  box-shadow: 5px 5px 0px var(--black) !important;
+  background-color: var(--white);
+  transition: all 0.2s ease;
 }
 
-/* Link Tanggal (Angka) */
-.fc-daygrid-day-number {
-  color: var(--text-secondary);
-  font-weight: 500;
-  text-decoration: none !important;
-}
-
-/* Hari Ini (Background Kotak Hari Ini) */
-.fc-day-today {
-  background-color: rgba(67, 121, 238, 0.05) !important; /* Biru sangat muda */
-}
-
-/* Event (Kotak Tugas di dalam kalender) */
-.fc-event {
-  border: none !important;
+.btn {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700 !important;
+  border: var(--border-width) solid var(--black) !important;
   border-radius: 6px !important;
-  padding: 2px 5px !important;
-  font-size: 0.85rem !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--black) !important;
+  text-transform: uppercase;
+  color: var(--black) !important;
+  transition: all 0.1s ease-out !important;
 }
 
-/* --- FLOATING ACTION BUTTON (TOMBOL TAMBAH) --- */
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--black) !important;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+}
+.btn-success {
+  background-color: var(--bs-success) !important;
+}
+.btn-danger {
+  background-color: var(--bs-danger) !important;
+}
+.btn-warning {
+  background-color: var(--bs-warning) !important;
+}
+.btn-light {
+  background-color: var(--white) !important;
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary) !important;
+}
+.bg-secondary {
+  background-color: var(--bs-secondary) !important;
+}
+
+.form-control,
+.form-select {
+  border: var(--border-width) solid var(--black) !important;
+  border-radius: 6px !important;
+  font-family: "JetBrains Mono", monospace;
+  box-shadow: 3px 3px 0px var(--black);
+  transition: all 0.2s;
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px var(--black) !important;
+  transform: translate(3px, 3px);
+  border-color: var(--black) !important;
+}
+
+/*  CSS GRID LAYOUT UTAMA  */
+.app-container {
+  display: flex; /* Diubah dari grid ke flex agar lebih aman secara struktural */
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+/*  SIDEBAR CONTAINER  */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  width: 90px; /* Fix lebar sidebar */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0:
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  border-right: var(--border-width) solid var(--black);
+  flex-shrink: 0; /* Mencegah sidebar mengecil */
+}
+
+.sidebar-logo {
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  color: var(--black) !important;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.main-menu-item {
+  color: var(--black);
+}
+.main-menu-item:hover {
+  background-color: var(--neo-yellow);
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px 0px var(--black);
+  transform: translate(-2px, -2px);
+}
+.main-menu-item.active {
+  background-color: var(--neo-purple);
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px 0px var(--black);
+}
+
+/*  CONTENT AREA  */
+.main-content {
+  background-color: var(--body-bg);
+  padding: 2rem 2rem 2rem 6.5rem ;
+  flex-grow: 1; /* Konten mengisi sisa ruang */
+  min-width: 0; /* Mencegah overflow horizontal */
+}
+
+/*  FULLCALENDAR CUSTOMIZATION  */
+.fc-toolbar-title {
+  font-family: "Syne", sans-serif !important;
+  font-size: 1.5rem !important;
+}
+.fc-button-primary {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+  border: 2px solid var(--black) !important;
+  box-shadow: 2px 2px 0px var(--black) !important;
+  border-radius: 4px !important;
+}
+.fc-button-primary:hover,
+.fc-button-active {
+  background-color: var(--neo-light-green) !important;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--black) !important;
+}
+.fc-day-today {
+  background-color: var(--neo-yellow) !important;
+}
+.fc-day-selected {
+  background-color: rgba(144, 168, 237, 0.3) !important;
+/* Hapus border bawaan yang meluber */
+  border: none !important; 
+  
+  /* Ganti dengan shadow ke dalam (inset) setebal 2px (bisa disesuaikan) */
+  box-shadow: inset 0 0 0 2px #111 !important;
+}
+.fc-daygrid-day-number {
+  color: var(--black);
+  font-weight: bold;
+}
+.fc-event {
+  background-color: var(--neo-pink) !important;
+  color: var(--black) !important;
+  border: 1px solid var(--black) !important;
+  border-radius: 0 !important;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  pointer-events: none !important;
+}
+
+.fc-col-header-cell-cushion{
+color: #535353 !important;
+}
+
+/*  FLOATING ACTION BUTTON  */
 .btn-fab {
-  position: fixed; /* Posisi tetap terhadap layar */
-  bottom: 40px; /* Jarak dari bawah */
-  right: 40px; /* Jarak dari kanan */
-  width: 60px; /* Lebar */
-  height: 60px; /* Tinggi (Sama agar bulat) */
-  border-radius: 50%; /* Membuat lingkaran sempurna */
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: var(--neo-pink);
+  color: var(--black);
+  border: 3px solid var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem; /* Ukuran icon plus */
-  box-shadow: 0 4px 15px rgba(67, 121, 238, 0.4); /* Efek bayangan */
-  transition: all 0.3s ease;
-  z-index: 1050; /* Pastikan di atas elemen lain */
+  font-size: 1.8rem;
+  box-shadow: 5px 5px 0px var(--black);
+  transition: all 0.2s ease;
+  z-index: 999;
+  cursor: pointer;
 }
-
 .btn-fab:hover {
-  background-color: #3260d6; /* Warna sedikit gelap saat hover */
-  transform: translateY(-3px); /* Efek naik sedikit saat disentuh */
-  box-shadow: 0 8px 25px rgba(67, 121, 238, 0.5);
-  color: white;
+  background-color: var(--neo-yellow);
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px var(--black);
+}
+.btn-fab:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px var(--black);
 }
 
-/* --- TANGGAL YANG DIKLIK (SELECTED) --- */
-.fc-day-selected {
-  background-color: rgba(
-    67,
-    121,
-    238,
-    0.1
-  ) !important; /* Biru Muda Background */
-  /* border: #2fabe9 solid 2px !important; */
+/*  BADGES (Untuk Kategori)  */
+.badge {
+  border: 2px solid var(--black) !important;
+  font-weight: 800;
+  color: var(--black) !important;
+  border-radius: 4px !important;
+  padding: 0.5em 0.8em;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0px var(--black);
+}
+.bg-primary-subtle {
+  background-color: var(--neo-blue) !important;
+}
+.bg-warning-subtle {
+  background-color: var(--neo-yellow) !important;
+}
+.bg-success-subtle {
+  background-color: var(--neo-light-green) !important;
+}
+.bg-danger-subtle {
+  background-color: var(--neo-pink) !important;
+}
+.bg-secondary-subtle {
+  background-color: var(--white) !important;
 }
 
-.fc-day-selected .fc-daygrid-day-number {
-  background-color: var(--primary-color);
-  color: var(--text-main);
-  border: #2fabe9 solid 2px;
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+/* ========================================================
+   GLOBAL SCROLLBAR NEUBRUTALISM
+   ======================================================== */
+
+/* Mengubah scrollbar di seluruh halaman web */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-/* Animasi Halus saat list berubah */
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 2px solid var(--black);
+  border-top: 2px solid var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border: 1px solid var(--black);
+}
+
+/* Scrollbar khusus saat di-hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neo-purple);
+}
+
+/* 1. Batasi tinggi area tugas di dalam kotak tanggal */
+.fc-daygrid-day-events {
+  height: 90px; /* Tinggi maksimal sebelum memunculkan scrollbar */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  margin-bottom: 3px !important;
+}
+
+/* 2. Styling Scrollbar ala Neubrutalism (Khusus di dalam kalender) */
+.fc-daygrid-day-events::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fc-daygrid-day-events::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 2px solid var(--black);
+}
+
+.fc-daygrid-day-events::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border: 1px solid var(--black);
+}
+
+/* Memastikan tulisan hari/tanggal tetap berada di posisinya (tidak ikut terdorong) */
+.fc-daygrid-day-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* RESPONSIVE GRID ADJUSTMENTS (Poin 3: Fix 768px bug) */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  /*  SIDEBAR MENJADI BOTTOM BAR  */
+  .sidebar {
+    background-color: var(--sidebar-bg);
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1050;
+    border-right: none !important;
+    border-top: var(--border-width) solid var(--black);
+    border-bottom: none !important;
+  }
+
+  .sidebar-logo {
+    display: none !important; /* Sembunyikan logo di ukuran mobile */
+  }
+
+  .sidebar .nav {
+    flex-direction: row !important;
+    width: auto !important;
+    flex-grow: 1;
+    padding:0 1.5rem;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .sidebar .nav-link {
+    margin-bottom: 0;
+  }
+
+  .sidebar .mt-auto {
+    margin-top: 0 !important;
+    flex-direction: row !important;
+    width: auto !important;
+    gap: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .dropdown-menu .dropdown-menu-profile .neo-border .neo-shadow .mb-2 .rounded-0 .show{
+    z-index: 2000 !important;
+  }
+
+  /*  KONTEN HALAMAN UTAMA  */
+  .main-content {
+    margin-left: 0;
+    padding: 1.2rem;
+    padding-bottom: 100px; /* Beri jarak di bawah agar konten tidak tertutup bottom bar */
+  }
+
+  /* ========================================================
+   FIX POSISI FAB MOBILE (Harus paling bawah agar menang)
+   ======================================================== */
+  @media (max-width: 768px) {
+    .btn-fab {
+      bottom: 95px; /* Paksa posisi ke atas bottom bar */
+      right: 20px;
+      transform: scale(0.9);
+    }
+
+    .btn-fab:hover {
+      transform: scale(0.9) translate(2px, 2px);
+    }
+
+    .btn-fab:active {
+      transform: scale(0.9) translate(5px, 5px);
+    }
+  }
+}
+
+/* ========================================================
+   FIX: TEKS WRAP & MOBILE DOT INDICATOR (KALENDER)
+   ======================================================== */
+
+/* 1. Paksa teks judul task turun ke baris baru jika kepanjangan */
+.fc-event {
+  white-space: normal !important;
+}
+.fc-event-main {
+  white-space: normal !important;
+  word-break: break-word !important;
+  padding: 2px 4px !important;
+}
+
+/* 2 & 3. Layar Kecil (< 576px): Munculkan hanya 1 titik Pink */
+@media (max-width: 575.98px) {
+  /* Tampilkan hanya wadah tugas PERTAMA */
+  .fc-daygrid-event-harness {
+    display: inline-block !important;
+  }
+  
+  /* SEMBUNYIKAN tugas ke-2, ke-3, dst di tanggal yang sama */
+  .fc-daygrid-event-harness ~ .fc-daygrid-event-harness {
+    display: none !important;
+  }
+  
+  /* Paksa titik pertama menjadi lingkaran Pink khas Neubrutalism */
+  .fc-daygrid-event {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 2px auto !important;
+    border: 2px solid var(--black) !important;
+    background-color: var(--neo-pink) !important; /* Paksa warna Pink */
+  }
+  
+  /* Sembunyikan teks judulnya */
+  .fc-event-title {
+    display: none !important; 
+  }
+  .fc-daygrid-event-dot {
+    display: none !important; 
+  }
+  
+  .fc-daygrid-event-harness{
+display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Susun dot tepat di tengah */
+  .fc-daygrid-day-events {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    width: 100% !important;
+    min-height: 30px;
+margin: 0 !important;
+    padding-bottom: 5px !important;
+    padding-left: 3px !important;
+  }
+
+  .fc-toolbar-title{
+    text-align:center !important;
+  } 
+}
+
+/* ========================================================
+   CUSTOM POPOVER NEUBRUTALISM
+   ======================================================== */
+.neo-popover {
+  border: 2px solid var(--black) !important;
+  border-radius: 0 !important; /* Kotak tajam */
+  box-shadow: 4px 4px 0px var(--black) !important;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.neo-popover .popover-body {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 12px;
+}
+
+/* Mengubah warna panah (arrow) popover agar sesuai garis border */
+.neo-popover .popover-arrow::before, 
+.neo-popover .popover-arrow::after {
+  border-color: transparent !important;
+}
+
+
+/* ANIMASI GLOBAL */
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -1,6 +1,8 @@
 <?php
-// --- FUNGSI PEMBACA .ENV MANUAL ---
-function loadEnv($path) {
+date_default_timezone_set('Asia/Jakarta');
+//  FUNGSI PEMBACA .ENV MANUAL 
+function loadEnv($path)
+{
     if (!file_exists($path)) {
         return false;
     }
@@ -12,7 +14,7 @@ function loadEnv($path) {
         list($name, $value) = explode('=', $line, 2);
         $name = trim($name);
         $value = trim($value);
-        
+
         // Hapus tanda kutip jika ada
         $value = str_replace('"', '', $value);
         $value = str_replace("'", '', $value);

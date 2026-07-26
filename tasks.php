@@ -10,12 +10,11 @@ require 'config/database.php';
 $user_id = $_SESSION['user_id'];
 $full_name = $_SESSION['full_name'];
 
-// --- LOGIC PHP ---
+//  LOGIC PHP 
 $search = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
 $cat    = isset($_GET['cat']) ? $_GET['cat'] : 'All';
 $sort   = isset($_GET['sort']) ? $_GET['sort'] : 'date_asc';
 
-// Cek apakah user sedang melakukan filter/pencarian?
 $is_filter_active = (!empty($search) || $cat != 'All');
 
 $query = "SELECT * FROM tasks 
@@ -46,17 +45,19 @@ switch ($sort) {
 
 $result = mysqli_query($conn, $query);
 
-// Grouping
 $overdue_tasks = [];
 $today_tasks   = [];
 $completed_tasks = [];
-$today_date = date('Y-m-d');
+
+// Gunakan waktu saat ini (detik)
+$current_time = time();
 
 while ($row = mysqli_fetch_assoc($result)) {
     if ($row['status'] == 'completed') {
         $completed_tasks[] = $row;
     } else {
-        if (!empty($row['due_date']) && $row['due_date'] < $today_date) {
+        // Bandingkan secara absolut menggunakan strtotime
+        if (!empty($row['due_date']) && strtotime($row['due_date']) < $current_time) {
             $overdue_tasks[] = $row;
         } else {
             $today_tasks[] = $row;
@@ -75,6 +76,8 @@ function getCatColor($cat)
             return 'success';
         case 'Health':
             return 'danger';
+        case 'None':
+            return 'secondary';
         default:
             return 'secondary';
     }
@@ -89,14 +92,14 @@ include 'includes/sidebar.php';
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="fw-bold mb-1">Hi, <?= htmlspecialchars($full_name) ?>!</h2>
-                <p class="text-secondary small">Make today count!</p>
+                <h2 class="fw-bold mb-1">HI, <?= htmlspecialchars(strtoupper($full_name)) ?>!</h2>
+                <p class="text-dark fw-bold mb-0" style="font-family: 'JetBrains Mono', monospace;">LET'S GET THINGS DONE.</p>
             </div>
         </div>
 
-        <form action="" method="GET" class="row g-2 mb-4">
+        <form action="" method="GET" class="row g-3 mb-5">
             <div class="col-md-3">
-                <select name="cat" class="form-select border border-primary text-secondary" onchange="this.form.submit()">
+                <select name="cat" class="form-select fw-bold border-2" onchange="this.form.submit()">
                     <option value="All">All Categories</option>
                     <option value="Personal" <?= $cat == 'Personal' ? 'selected' : '' ?>>Personal</option>
                     <option value="Work" <?= $cat == 'Work' ? 'selected' : '' ?>>Work</option>
@@ -104,47 +107,48 @@ include 'includes/sidebar.php';
                     <option value="Health" <?= $cat == 'Health' ? 'selected' : '' ?>>Health</option>
                 </select>
             </div>
-            <div class="col-md-5">
-                <div class="input-group  border border-primary rounded-1 overflow-hidden bg-white">
-                    <input type="text" name="q" class="form-control border-0 shadow-none" placeholder="Search tasks..." value="<?= htmlspecialchars($search) ?>">
-                    <span class="input-group-text bg-white border-0 ps-3"><i class="fas fa-search text-muted"></i></span>
-                </div>
-            </div>
             <div class="col-md-4">
-                <select name="sort" class="form-select border border-primary text-secondary" onchange="this.form.submit()">
-                    <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>📅 Date (Ascending)</option>
-                    <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>📅 Date (Descending)</option>
-                    <option value="alpha_asc" <?= $sort == 'alpha_asc' ? 'selected' : '' ?>>🔤 A - Z</option>
-                    <option value="alpha_desc" <?= $sort == 'alpha_desc' ? 'selected' : '' ?>>🔤 Z - A</option>
+                <select name="sort" class="form-select fw-bold border-2" onchange="this.form.submit()">
+                    <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Date (Ascending)</option>
+                    <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Date (Descending)</option>
+                    <option value="alpha_asc" <?= $sort == 'alpha_asc' ? 'selected' : '' ?>>A - Z</option>
+                    <option value="alpha_desc" <?= $sort == 'alpha_desc' ? 'selected' : '' ?>>Z - A</option>
                 </select>
             </div>
+            <div class="col-md-5">
+                <div class="input-group gap-2">
+                    <input type="text" name="q" class="form-control fw-bold border-2" placeholder="SEARCH TASKS..." value="<?= htmlspecialchars($search) ?>">
+                    <button type="submit" class="btn btn-warning neo-border ps-3 pe-3 text-dark">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
         </form>
 
         <?php if (empty($overdue_tasks) && empty($today_tasks) && empty($completed_tasks)): ?>
-
             <div class="text-center py-5">
                 <?php if ($is_filter_active): ?>
                     <div class="mb-3">
-                        <i class="fas fa-search fs-1 text-muted opacity-50"></i>
+                        <i class="fas fa-search fs-1 text-dark"></i>
                     </div>
-                    <h5 class="fw-bold text-muted">No results found</h5>
-                    <p class="small text-muted">We couldn't find any tasks matching your search.</p>
-                    <a href="tasks.php" class="btn btn-outline-primary btn-sm rounded-pill px-4">Clear Filters</a>
-
+                    <h4 class="fw-bold text-dark">NO RESULTS FOUND</h4>
+                    <p class="fw-bold text-dark">We couldn't find any tasks matching your search.</p>
+                    <a href="tasks.php" class="btn btn-primary px-4 mt-2">CLEAR FILTERS</a>
                 <?php else: ?>
-                    <img src="assets/img/empty_tasks.svg" style="width: 150px; opacity: 0.6;" onerror="this.style.display='none'">
-                    <h5 class="fw-bold mt-3 text-muted">Don't let the day slip away...</h5>
-                    <p class="small text-muted">Start by adding a new task!</p>
+                    <h1 class="text-dark mb-3"><i class="fas fa-ghost"></i></h1>
+                    <h4 class="fw-bold text-dark">NOTHING HERE</h4>
+                    <p class="fw-bold text-dark">Start by adding a new task!</p>
                 <?php endif; ?>
             </div>
-
         <?php endif; ?>
 
-        <div class="vstack gap-4">
-
+        <div class="vstack gap-5">
             <?php if (!empty($overdue_tasks)): ?>
                 <div>
-                    <h6 class="fw-bold text-danger mb-3 ps-2 border-start border-4 border-danger">&nbsp; Overdue Tasks</h6>
+                    <div class="d-inline-block bg-danger neo-border px-3 py-1 mb-3">
+                        <h6 class="fw-bold text-dark mb-0 m-0">OVERDUE TASKS</h6>
+                    </div>
                     <div class="row g-3"> <?php foreach ($overdue_tasks as $row): ?>
                             <?php include 'views/partials/task_item.php'; ?>
                         <?php endforeach; ?>
@@ -154,7 +158,9 @@ include 'includes/sidebar.php';
 
             <?php if (!empty($today_tasks)): ?>
                 <div>
-                    <h6 class="fw-bold text-primary mb-3 ps-2 border-start border-4 border-primary">&nbsp; Active Tasks</h6>
+                    <div class="d-inline-block bg-primary neo-border px-3 py-1 mb-3">
+                        <h6 class="fw-bold text-dark mb-0 m-0">ACTIVE TASKS</h6>
+                    </div>
                     <div class="row g-3"> <?php foreach ($today_tasks as $row): ?>
                             <?php include 'views/partials/task_item.php'; ?>
                         <?php endforeach; ?>
@@ -164,19 +170,20 @@ include 'includes/sidebar.php';
 
             <?php if (!empty($completed_tasks)): ?>
                 <div>
-                    <h6 class="fw-bold text-success mb-3 ps-2 border-start border-4 border-success opacity-75">&nbsp; Completed Today</h6>
+                    <div class="d-inline-block bg-success neo-border px-3 py-1 mb-3 opacity-75">
+                        <h6 class="fw-bold text-dark mb-0 m-0">COMPLETED TODAY</h6>
+                    </div>
                     <div class="row g-3 opacity-75"> <?php foreach ($completed_tasks as $row): ?>
                             <?php include 'views/partials/task_item.php'; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
             <?php endif; ?>
-
         </div>
 
-        <div class="text-center mt-5 mb-5">
-            <a href="history.php" class="text-decoration-none text-primary small opacity-75 fw-bold">
-                Check all history <i class="fas fa-arrow-right ms-1"></i>
+        <div class="text-center mt-5 mb-5 border-top border-dark border-3 pt-4">
+            <a href="history.php" class="btn btn-light neo-border px-4 py-2 text-dark fw-bold">
+                CHECK ALL HISTORY <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
 
@@ -189,5 +196,6 @@ include 'includes/sidebar.php';
 
 <?php
 include 'views/modal_add_task.php';
+include 'views/modal_edit_task.php';
 include 'includes/footer.php';
 ?>

@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login - Runtut</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Syne:wght@400..800&display=swap');
+    </style>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body {
-            background-color: var(--body-bg);
+            background-color: var(--neo-light-green);
+            /* Pola titik-titik (polkadot) bergaya retro */
+            background-image: radial-gradient(var(--black) 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -17,46 +23,32 @@
         }
 
         .auth-card {
-            background: white;
+            background: var(--white);
             padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             width: 100%;
-            max-width: 400px;
-        }
-
-        .btn-primary {
-            border: none;
-            padding: 0.8rem;
-            border-radius: 8px;
-        }
-
-        .form-control {
-            padding: 0.8rem;
-            border-radius: 8px;
-            background-color: #F9FAFB;
-            border: 1px solid #E5E7EB;
+            max-width: 420px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="auth-card">
+    <div class="auth-card neo-border neo-shadow neo-rounded">
         <div class="text-center mb-4">
-<img src="../../runtut-web/assets/img/logo/full.png" alt="Runtut Logo" class="img-fluid mb-2" style="max-height: 80px;">
-            <p class="text-muted small">Silakan masuk untuk daftar.</p>
+            <img src="assets/img/logo/icon.png" class="img-fluid mb-4" style="max-height: 100px;" alt="Logo Runtut">
+            <h2 class="fw-bold mb-1" style="color: var(--black);">WELCOME BACK</h2>
+            <p class="text-dark fw-bold small mb-0" style="font-family: 'JetBrains Mono', monospace;">Take a deep breath and start planning. </p>
         </div>
 
         <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger py-2 text-center small mb-3">
+            <div class="alert alert-danger py-2 text-center small mb-3 neo-border fw-bold text-dark" style="background-color: var(--neo-pink);">
                 <?= $_SESSION['error'];
                 unset($_SESSION['error']); ?>
             </div>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['success'])): ?>
-            <div class="alert alert-success py-2 text-center small mb-3">
+            <div class="alert alert-success py-2 text-center small mb-3 neo-border fw-bold text-dark" style="background-color: var(--neo-light-green);">
                 <?= $_SESSION['success'];
                 unset($_SESSION['success']); ?>
             </div>
@@ -64,18 +56,18 @@
 
         <form action="actions/auth.php?action=login" method="POST">
             <div class="mb-3">
-                <label class="form-label small fw-bold text-secondary">USERNAME</label>
-                <input type="text" name="username" class="form-control shadow-none" placeholder="Masukan username" required>
+                <label class="form-label small fw-bold text-dark">USERNAME</label>
+                <input type="text" name="username" class="form-control" placeholder="Type username..." required>
             </div>
             <div class="mb-4">
-                <label class="form-label small fw-bold text-secondary">PASSWORD</label>
-                <input type="password" name="password" class="form-control shadow-none" placeholder="••••••••" required>
+                <label class="form-label small fw-bold text-dark">PASSWORD</label>
+                <input type="password" name="password" class="form-control" placeholder="Type password..." required>
             </div>
-            <button type="submit" class="btn btn-primary w-100 fw-bold mb-3">Masuk Sekarang</button>
+            <button type="submit" class="btn btn-primary w-100 fw-bold mb-3 fs-5">Let's Go!</button>
         </form>
 
-        <div class="text-center">
-            <p class="small text-muted mb-0">Belum punya akun? <a href="index.php?page=register" class="text-primary fw-bold text-decoration-none">Daftar</a></p>
+        <div class="text-center mt-3 border-top border-dark pt-3" style="border-top-width: 2px !important;">
+            <p class="small text-dark fw-bold mb-0">New here? <a href="index.php?page=register" class="text-decoration-none" style="color: var(--neo-blue); text-shadow: 1px 1px 0px var(--black);">Join now</a></p>
         </div>
     </div>
 

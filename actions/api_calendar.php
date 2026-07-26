@@ -1,4 +1,5 @@
 <?php
+/** @var mysqli $conn */
 session_start();
 require '../config/database.php';
 
@@ -37,6 +38,9 @@ while ($row = mysqli_fetch_assoc($result)) {
             break;
         case 'Health':
             $color = '#ff7675'; // Merah Muda
+            break;
+        case 'None':
+            $color = '#6c757d';
             break;
     }
 
