@@ -63,6 +63,8 @@ elseif ($action == 'login' && $_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $user['username'];
             $_SESSION['is_login'] = true;
 
+            $_SESSION['play_welcome'] = true;
+
             header("Location: ../tasks.php");
             exit;
         }

@@ -13,7 +13,7 @@ $titleClass  = $isCompleted ? 'text-decoration-line-through text-muted' : 'text-
 $dateClass   = $isOverdue ? 'fw-bold' : 'text-dark';
 
 $action      = $isCompleted ? 'uncomplete' : 'complete';
-$tooltip     = $isCompleted ? 'Mark as Pending' : 'Mark as Done';
+// $tooltip     = $isCompleted ? 'Mark as Pending' : 'Mark as Done';
 $checkedAttr = $isCompleted ? 'checked' : '';
 $checkboxUrl = "actions/task_handler.php?action=$action&id={$row['id']}";
 
@@ -40,11 +40,10 @@ $descText = preg_replace('/(https?:\/\/[^\s<]+)/', '<a href="$1" target="_blank"
                 <?php echo $dateDisplay; ?>
             </span>
             <div class="form-check m-0">
-                <input class="form-check-input neo-border" type="checkbox"
+                <input class="form-check-input neo-border ignore-click" type="checkbox"
                     style="cursor: pointer; width: 1.4em; height: 1.4em;"
-                    <?php echo $checkedAttr; ?>
-                    onchange="window.location.href='<?php echo $checkboxUrl; ?>'"
-                    data-bs-toggle="tooltip" title="<?php echo $tooltip; ?>">
+                    onclick="playDoneSound('<?php echo $checkboxUrl; ?>')"
+                    <?php echo $checkedAttr; ?>>
             </div>
         </div>
 

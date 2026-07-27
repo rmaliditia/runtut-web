@@ -9,12 +9,12 @@
                 <button type="button" class="btn-close neo-border bg-white rounded-0 opacity-100" data-bs-dismiss="modal" style="padding: 0.5rem;"></button>
             </div>
 
-            <form action="actions/task_handler.php?action=add" method="POST">
+            <form action="actions/task_handler.php?action=add" id="formAddTask" method="POST">
                 <div class="modal-body p-4 bg-white">
 
                     <div class="mb-3">
                         <label class="form-label fw-bold text-dark">TASK TITLE</label>
-                        <input type="text" name="title" maxlength="50" class="form-control" placeholder="e.g., Project Design Meeting" required>
+                        <input type="text" id="taskTitle" name="title" maxlength="50" class="form-control" placeholder="e.g., Project Design Meeting" required>
                     </div>
 
                     <div class="mb-3">

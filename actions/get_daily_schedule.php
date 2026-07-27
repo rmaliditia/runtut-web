@@ -74,7 +74,7 @@ if (mysqli_num_rows($result) > 0) {
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end neo-border neo-shadow rounded-0">
                                 <li>
-                                    <a class="dropdown-item fw-bold text-dark" href="actions/task_handler.php?action=<?= $action ?>&id=<?= $row['id'] ?>">
+                                    <a class="dropdown-item fw-bold text-dark ignore-click" href="#" onclick="playDoneSound('actions/task_handler.php?action=<?= $action ?>&id=<?= $row['id'] ?>')">
                                         <i class="fas <?= $btnIcon ?> me-2"></i><?= $btnLabel ?>
                                     </a>
                                 </li>
@@ -99,7 +99,7 @@ if (mysqli_num_rows($result) > 0) {
                                     <hr class="dropdown-divider border-dark border-2">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item fw-bold text-danger btn-delete" href="actions/task_handler.php?action=delete&id=<?= $row['id'] ?>">
+                                    <a class="dropdown-item fw-bold text-danger btn-delete ignore-click" href="actions/task_handler.php?action=delete&id=<?= $row['id'] ?>">
                                         <i class="fas fa-trash me-2"></i>DELETE
                                     </a>
                                 </li>

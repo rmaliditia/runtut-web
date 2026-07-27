@@ -23,7 +23,7 @@
         </a>
         <div class="mt-auto w-100 d-flex flex-column align-items-center">
             <!-- Dropup Menu for User Profile -->
-            <div class="dropup" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User Profile">
+            <div class="dropup ignore-click" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User Profile">
                 <button class="nav-link neo-hover p-0 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: var(--neo-light-green); border: 2px solid var(--black); box-shadow: 2px 2px 0px var(--black); width: 45px; height: 45px;">
                     <i class="fas fa-user-astronaut text-dark fs-5"></i>
                 </button>
@@ -47,9 +47,30 @@
                         <hr class="dropdown-divider border-dark border-2 m-0">
                     </li>
 
+                    <!-- Kontrol Audio BGM & SFX -->
+                    <li>
+                        <div class="px-3 py-2 text-dark ignore-click">
+                            <label for="bgmVolume" class="form-label fw-bold small mb-1"><i class="fas fa-music me-2"></i>BGM Volume</label>
+                            <input type="range" class="form-range" id="bgmVolume" min="0" max="1" step="0.05" value="0.3">
+                        </div>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider border-dark border-2 m-0">
+                    </li>
+                    <li>
+                        <div class="px-3 py-1 text-dark ignore-click">
+                            <label for="sfxVolume" class="form-label fw-bold small mb-1"><i class="fas fa-volume-up me-2"></i>SFX Volume</label>
+                            <input type="range" class="form-range" id="sfxVolume" min="0" max="1" step="0.05" value="0.7">
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider border-dark border-2 m-0">
+                    </li>
+
                     <!-- Tombol Logout -->
                     <li>
-                        <a class="dropdown-item fw-bold text-danger py-2 mt-1" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <a class="dropdown-item fw-bold text-danger py-2 mt-1 ignore-click" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
                             <i class="fas fa-sign-out-alt me-2"></i>LOGOUT
                         </a>
                     </li>

@@ -56,7 +56,10 @@ include 'includes/sidebar.php';
             </div>
 
             <?php if (mysqli_num_rows($result) > 0): ?>
-                <a href="actions/task_handler.php?action=clear_history" class="btn btn-danger btn-delete px-3 py-2">
+                <!-- Tambahkan class ignore-click dan event onclick manual untuk suaranya -->
+                <a href="actions/task_handler.php?action=clear_history"
+                    class="btn btn-danger btn-delete ignore-click px-3 py-2"
+                    onclick="document.getElementById('soundClick').play();">
                     <i class="fas fa-trash-alt me-2"></i>CLEAR
                 </a>
             <?php endif; ?>

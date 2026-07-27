@@ -59,7 +59,7 @@
                             <option value="monthly" id="editOptMonthly">Monthly</option>
                             <option value="yearly" id="editOptYearly">Yearly</option>
                         </select>
-                        <div id="editRepeatHelp" class="form-text small fw-bold text-danger d-none mt-1">
+                        <div id="editRepeatHelp" class="form-text small fw-bold text-primary d-none mt-2">
                             *New task will be created automatically when this task is marked "DONE".
                         </div>
                     </div>
